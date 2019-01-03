@@ -232,3 +232,20 @@ var example1 = new Vue({
     counter: 0
   }
 })
+
+new Vue({
+  el: '#example-3',
+  methods: {
+    say: function (message) {
+      alert(message)
+    }
+  }
+})
+
+new Vue({
+  el: '#example-33',
+  data: {
+    checkedNames: []
+  }
+})
+

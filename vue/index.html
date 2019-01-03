@@ -115,6 +115,35 @@
       <p>위 버튼을 클릭한 횟수는 {{ counter }} 번 입니다.</p>
     </div>
     
+    <div id="example-3">
+      <button v-on:click="say('hi')">Say hi</button>
+      <button v-on:click="say('what')">Say what</button>
+    </div>
+    
+    <!-- model에 value값이 {{}}에 들어간다. -->
+    <div id='example-33'>
+      <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+      <label for="jack">Jack</label>
+      <input type="checkbox" id="john" value="John" v-model="checkedNames">
+      <label for="john">John</label>
+      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+      <label for="mike">Mike</label>
+      <br>
+      <span>체크한 이름: {{ checkedNames }}</span>
+    </div>
+    
+    <!-- `picked` 는 선택시 문자열 "a" 입니다 -->
+    <input type="radio" v-model="picked" value="a">
+    
+    <!-- `toggle` 는 true 또는 false 입니다 -->
+    <input type="checkbox" v-model="toggle">
+    
+    <!-- `selected`는 "ABC" 선택시 "abc" 입니다 -->
+    <select v-model="selected">
+      <option value="abc">ABC</option>
+    </select>
+
+
   <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
   <script src="js/jquery/jquery-2.2.4.min.js"></script>
   <script src="js/popper.min.js"></script>
