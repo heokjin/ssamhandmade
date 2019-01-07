@@ -18,8 +18,7 @@ func main() {
 	e := echo.New()
 	e.Renderer = t
 
-	// e.Static("/", "amado")
-	e.Static("/", "vue")
+	e.Static("/", "amado")
 
 	// Middleware
 	e.Use(middleware.Logger())

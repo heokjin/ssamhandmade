@@ -249,3 +249,98 @@ new Vue({
   }
 })
 
+new Vue({
+  el: '#example-34',
+ 
+})
+
+var data = { counter: 0 }
+
+Vue.component('simple-counter', {
+  template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+  // 데이터는 기술적으로 함수이므로 Vue는 따지지 않지만
+  // 각 컴포넌트 인스턴스에 대해 같은 객체 참조를 반환합니다.
+  data: function () {
+	  return {
+	    counter: 0
+	  }
+	}
+})
+
+new Vue({
+  el: '#example-21'
+})
+
+Vue.component('button-counter', {
+  template: '<button v-on:click="incrementCounter">{{ counter }}</button>',
+  data: function () {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    incrementCounter: function () {
+      this.counter += 1
+      this.$emit('increment')
+    }
+  },
+})
+
+new Vue({
+  el: '#counter-event-example',
+  data: {
+    total: 0
+  },
+  methods: {
+    incrementTotal: function () {
+      this.total += 1
+    }
+  }
+})
+
+Vue.component('currency-input', {
+  template: '\
+    <span>\
+      $\
+      <input\
+        ref="input"\
+        v-bind:value="value"\
+        v-on:input="updateValue($event.target.value)">\
+    </span>\
+  ',
+  props: ['value'],
+  methods: {
+    // 값을 직접 업데이트하는 대신 이 메소드를 사용하여
+    // 입력 값에 대한 서식을 지정하고 배치 할 수 있습니다
+    updateValue: function (value) {
+      var formattedValue = value
+        // 공백을 제거합니다.
+        .trim()
+        // 소수 자릿수 2자리로 줄입니다
+        .slice(
+          0,
+          value.indexOf('.') === -1
+            ? value.length
+            : value.indexOf('.') + 3
+        )
+      // 값이 아직 정규화 되지 않은 경우
+      // 이를 수동으로 재정의하여 조건을 충족시킵니다.
+      if (formattedValue !== value) {
+        this.$refs.input.value = formattedValue
+      }
+      // 입력 이벤트를 통해 숫자 값을 내보냅니다.
+      this.$emit('input', Number(formattedValue))
+    }
+  }
+})
+new Vue({
+  el: '#currency-ex1',
+  data: {price:''}
+})
+
+new Vue({
+  el: '#demo1',
+  data: {
+    show: true
+  }
+})

@@ -15,6 +15,8 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="css/vue.css">
   </head>
     
   <body>
@@ -142,6 +144,35 @@
     <select v-model="selected">
       <option value="abc">ABC</option>
     </select>
+    
+    <div id='example-34'>
+      <span v-for="n in 10">{{ n }} </span>
+    </div>
+    
+    <div id="example-21">
+      <simple-counter></simple-counter>
+      <simple-counter></simple-counter>
+      <simple-counter></simple-counter>
+    </div>
+    
+    <div id="counter-event-example">
+      <p>{{ total }}</p>
+      <button-counter v-on:increment="incrementTotal"></button-counter>
+      <button-counter v-on:increment="incrementTotal"></button-counter>
+    </div>
+    
+    <div id="currency-ex1">
+      <currency-input v-model="price"></currency-input>
+    </div>
+    
+    <div id="demo1">
+      <button v-on:click="show = !show">
+        Toggle
+      </button>
+      <transition name="fade">
+        <p v-if="show">hello</p>
+      </transition>
+    </div>
 
 
   <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
