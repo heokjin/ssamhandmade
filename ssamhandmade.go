@@ -12,19 +12,18 @@ import (
 func main() {
 	fmt.Println("TEST")
 	t := &Template{
-		templates: template.Must(template.ParseGlob("amado/*.html")),
+		templates: template.Must(template.ParseGlob("ssam/*.html")),
 	}
 
 	e := echo.New()
 	e.Renderer = t
-
-	e.Static("/", "amado")
+	e.Static("/", "static")
 
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	//	e.GET("/", testa)
+	e.GET("/", Hello)
 
 	// Start server
 	e.Start(":80")
