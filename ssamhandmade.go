@@ -24,6 +24,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	e.GET("/", Hello)
+	e.GET("/shop", Shop)
 
 	// Start server
 	e.Start(":80")
