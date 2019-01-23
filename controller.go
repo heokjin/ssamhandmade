@@ -14,3 +14,15 @@ func Hello(c echo.Context) error {
 func Shop(c echo.Context) error {
 	return c.Render(http.StatusOK, "shop.html", "World")
 }
+
+func ProductDetails(c echo.Context) error {
+	return c.Render(http.StatusOK, "product-details.html", "World")
+}
+
+func Cart(c echo.Context) error {
+	return c.Render(http.StatusOK, "cart.html", "World")
+}
+
+func CheckOut(c echo.Context) error {
+	return c.Render(http.StatusOK, "checkout.html", "World")
+}

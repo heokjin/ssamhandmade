@@ -7,6 +7,7 @@
 @import url(../css/jquery-ui.min.css);
 @import url(../css/nice-select.css);
 @import url(../css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Jua');
 @font-face {
   font-family: 'helveticaneuebold';
   src: url("../fonts/helvetica_neu_bold-webfont.woff2") format("woff2"), url("../fonts/helvetica_neu_bold-webfont.woff") format("woff");
@@ -24,7 +25,8 @@
   padding: 0; }
 
 body {
-  font-family: "helveticaneuemedium";
+/*  font-family: "helveticaneuemedium";*/
+  font-family: 'Jua', sans-serif;
   font-size: 16px; }
 
 h1,
