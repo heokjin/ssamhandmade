@@ -16,6 +16,7 @@ type IndexSingleCatagory struct {
 	ImgSrc       string
 	Price        string
 	CatagoryName string
+	CatagoryType string
 }
 
 func Hello(c echo.Context) error {
@@ -23,9 +24,10 @@ func Hello(c echo.Context) error {
 	singleCatagory := make([]IndexSingleCatagory, 8)
 	shoes := IndexSingleCatagory{}
 	shoes.CatagoryName = "귀여운 신발"
-	shoes.Href = "/shop"
+	shoes.Href = "/shop/shoes"
 	shoes.ImgSrc = "img/ssam-bg-img/1.png"
 	shoes.Price = "From $180"
+	shoes.CatagoryType = CatagoryTypeShoes
 
 	shoes2 := IndexSingleCatagory{}
 	shoes2.CatagoryName = "aaaaaa"

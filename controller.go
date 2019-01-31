@@ -7,10 +7,6 @@ import (
 	"github.com/labstack/echo"
 )
 
-func Shop(c echo.Context) error {
-	return c.Render(http.StatusOK, "shop.html", "World")
-}
-
 func ProductDetails(c echo.Context) error {
 	return c.Render(http.StatusOK, "product-details.html", "World")
 }

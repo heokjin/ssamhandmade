@@ -24,7 +24,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	e.GET("/", Hello)
-	e.GET("/shop", Shop)
+	e.GET("/shop/:catagoryType", Shop)
 	e.GET("/product-details", ProductDetails)
 	e.GET("/cart", Cart)
 	e.GET("/checkout", CheckOut)
