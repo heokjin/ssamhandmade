@@ -54,3 +54,10 @@ or
 For more information about using Go on Heroku, see these Dev Center articles:
 
 - [Go on Heroku](https://devcenter.heroku.com/categories/go)
+
+#데이터베이스 만들기
+해당 프로젝트 안에서 실행해야 한다.<br>
+heroku addons:create heroku-postgresql:hobby-dev<br>
+heroku addons:docs heroku-postgresql<br>
+This database is empty. If upgrading, you can transfer data from another database with pg:copy <br>
+heroku pg:info <br>

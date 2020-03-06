@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"ssamhandmade/model"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -17,7 +18,10 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 
-	fmt.Println("TEST")
+	model.InitDB()
+	model.InitSchema()
+
+	fmt.Println("TEST1")
 	t := &Template{
 		templates: template.Must(template.ParseGlob("ssam/*.html")),
 	}
