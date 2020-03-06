@@ -1,17 +1,21 @@
-FROM golang:1.14.0-buster
+FROM heroku/heroku:18-build as build
 
-ENV GO111MODULE on
+COPY . /app
+WORKDIR /app
 
-WORKDIR $GOPATH/src/github.com/heokjin/ssamhandmade
-COPY go.mod .
-COPY go.sum .
+# Setup buildpack
+RUN mkdir -p /tmp/buildpack/heroku/go /tmp/build_cache /tmp/env
+RUN curl https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/go.tgz | tar xz -C /tmp/buildpack/heroku/go
 
-RUN go mod download
+#Execute Buildpack
+RUN STACK=heroku-18 /tmp/buildpack/heroku/go/bin/compile /app /tmp/build_cache /tmp/env
 
-COPY . .
+# Prepare final, minimal image
+FROM heroku/heroku:18
 
-RUN go build -o ssamhandmade
-
-ENTRYPOINT ./ssamhandmade
-
-EXPOSE 80
+COPY --from=build /app /app
+ENV HOME /app
+WORKDIR /app
+RUN useradd -m heroku
+USER heroku
+CMD /app/bin/ssamhandmade

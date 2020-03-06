@@ -4,12 +4,19 @@ import (
 	"fmt"
 	"html/template"
 	"io"
+	"os"
+	"log"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
 	fmt.Println("TEST")
 	t := &Template{
 		templates: template.Must(template.ParseGlob("ssam/*.html")),
@@ -30,7 +37,7 @@ func main() {
 	e.GET("/checkout", CheckOut)
 
 	// Start server
-	e.Start(":80")
+	e.Start(":" + port)
 }
 
 type Template struct {
